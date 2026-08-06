@@ -340,6 +340,14 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 }
 .hero--center .container { position: relative; z-index: 1; }
 
+/* Home-only: stronger glow variant (About keeps the original subtle one above) */
+.hero--glow-strong::before {
+  background: radial-gradient(circle, rgba(232,184,75,.35) 0%, rgba(232,184,75,0) 70%) !important;
+}
+.hero--glow-strong::after {
+  background: radial-gradient(circle, rgba(26,92,184,.22) 0%, rgba(26,92,184,0) 70%) !important;
+}
+
 /* ===== Footer icon links ===== */
 .footer__icons { display: flex; gap: 12px; margin-top: 14px; }
 .footer__icon-link {
