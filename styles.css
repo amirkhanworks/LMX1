@@ -331,11 +331,13 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 .glow-accent::before {
   content: ""; position: absolute; top: -25%; right: -10%; width: 55%; height: 140%;
   background: radial-gradient(circle, rgba(232,184,75,.40) 0%, rgba(232,184,75,0) 70%);
+  filter: blur(80px);
   pointer-events: none; z-index: 0;
 }
 .glow-accent::after {
   content: ""; position: absolute; bottom: -35%; left: -12%; width: 42%; height: 110%;
   background: radial-gradient(circle, rgba(26,92,184,.30) 0%, rgba(26,92,184,0) 70%);
+  filter: blur(80px);
   pointer-events: none; z-index: 0;
 }
 .glow-accent > .container { position: relative; z-index: 1; }
