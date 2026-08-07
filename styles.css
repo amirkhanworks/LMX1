@@ -326,27 +326,19 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 .cta-banner__title { font-size: clamp(24px, 3.5vw, 34px); max-width: 560px; margin: 0 auto 24px; color: #fff; border: none; padding: 0; }
 .cta-banner__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-/* ===== Subtle hero glow (Home/About only) ===== */
-.hero--center { position: relative; overflow: hidden; }
-.hero--center::before {
+/* ===== Glow accent (unified, applied to 8 sections across Home/About) ===== */
+.glow-accent { position: relative; overflow: hidden; }
+.glow-accent::before {
   content: ""; position: absolute; top: -25%; right: -10%; width: 55%; height: 140%;
-  background: radial-gradient(circle, rgba(232,184,75,.16) 0%, rgba(232,184,75,0) 70%);
+  background: radial-gradient(circle, rgba(232,184,75,.40) 0%, rgba(232,184,75,0) 70%);
   pointer-events: none; z-index: 0;
 }
-.hero--center::after {
+.glow-accent::after {
   content: ""; position: absolute; bottom: -35%; left: -12%; width: 42%; height: 110%;
-  background: radial-gradient(circle, rgba(26,92,184,.09) 0%, rgba(26,92,184,0) 70%);
+  background: radial-gradient(circle, rgba(26,92,184,.30) 0%, rgba(26,92,184,0) 70%);
   pointer-events: none; z-index: 0;
 }
-.hero--center .container { position: relative; z-index: 1; }
-
-/* Home-only: stronger glow variant (About keeps the original subtle one above) */
-.hero--glow-strong::before {
-  background: radial-gradient(circle, rgba(232,184,75,.35) 0%, rgba(232,184,75,0) 70%) !important;
-}
-.hero--glow-strong::after {
-  background: radial-gradient(circle, rgba(26,92,184,.22) 0%, rgba(26,92,184,0) 70%) !important;
-}
+.glow-accent > .container { position: relative; z-index: 1; }
 
 /* ===== Footer icon links ===== */
 .footer__icons { display: flex; gap: 12px; margin-top: 14px; }
