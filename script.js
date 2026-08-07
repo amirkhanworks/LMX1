@@ -56,3 +56,19 @@ if ('IntersectionObserver' in window) {
 } else {
   counters.forEach(animateCounter);
 }
+
+// FAQ tabs (Before You Buy / After You Buy) — only present on about.html, guarded so it's a no-op elsewhere
+const faqTabs = document.querySelectorAll('[data-faq-tab]');
+if (faqTabs.length) {
+  faqTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-faq-tab');
+
+      faqTabs.forEach((t) => t.classList.toggle('is-active', t === tab));
+
+      document.querySelectorAll('[data-faq-panel]').forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-faq-panel') !== target;
+      });
+    });
+  });
+}
