@@ -447,7 +447,19 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 /* ===== Founder bio placeholder ===== */
 .bio-placeholder { font-size: 13px; color: var(--text-muted); font-style: italic; margin-top: 10px; }
 
-/* ===== FAQ (native details/summary, no JS needed) ===== */
+/* ===== FAQ tabs ===== */
+.faq-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 36px; flex-wrap: wrap; }
+.faq-tab {
+  padding: 12px 24px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text-muted); font-family: var(--font-body);
+  font-weight: 600; font-size: 14px; cursor: pointer; transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.faq-tab:hover { border-color: var(--blue); color: var(--navy); }
+.faq-tab.is-active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.faq-tab.is-active:hover { color: #fff; }
+.faq-panel[hidden] { display: none; }
+
+/* ===== FAQ (native details/summary, no JS needed for accordion behaviour) ===== */
 .faq-list { max-width: 720px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
 .faq-item summary {
