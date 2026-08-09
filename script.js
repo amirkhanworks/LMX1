@@ -72,3 +72,14 @@ if (faqTabs.length) {
     });
   });
 }
+
+// Case study accordions (smooth expand/collapse, replaces native <details> for this component only)
+document.querySelectorAll('.case-accordion__summary').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const acc = btn.closest('.case-accordion');
+    const isOpen = acc.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    const toggle = btn.querySelector('.case-accordion__toggle');
+    if (toggle) toggle.textContent = isOpen ? '−' : '+';
+  });
+});
