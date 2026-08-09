@@ -266,6 +266,7 @@ p { margin: 0 0 1em; color: var(--text-muted); }
   width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center;
   justify-content: center; margin-bottom: 18px; font-size: 19px; color: #fff; font-weight: 600;
 }
+.card__icon svg { width: 22px; height: 22px; }
 .card__icon--navy { background: var(--navy); }
 .card__icon--amber { background: var(--amber); color: var(--navy); }
 .card__icon--blue { background: var(--blue); }
