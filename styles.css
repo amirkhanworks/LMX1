@@ -452,16 +452,18 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 /* ===== Case study accordion ===== */
 .case-accordion { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 20px; background: var(--surface); }
 .case-accordion__summary {
-  display: flex; align-items: center; gap: 20px; padding: 24px 28px; cursor: pointer; list-style: none; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 20px; padding: 24px 28px; cursor: pointer; flex-wrap: wrap;
+  width: 100%; border: none; background: none; font: inherit; text-align: left; color: inherit;
 }
-.case-accordion__summary::-webkit-details-marker { display: none; }
 .case-accordion__badges { display: flex; gap: 8px; flex-shrink: 0; }
 .case-accordion__text { flex: 1; min-width: 200px; }
 .case-accordion__title { font-family: var(--font-display); font-size: 17px; color: var(--navy); margin: 0 0 4px; }
 .case-accordion__blurb { font-size: 14px; color: var(--text-muted); margin: 0; }
-.case-accordion__toggle { font-size: 22px; color: var(--amber-text); flex-shrink: 0; margin-left: auto; transition: transform .2s ease; }
-.case-accordion[open] .case-accordion__toggle { transform: rotate(45deg); }
-.case-accordion__body { border-top: 1px solid var(--border); padding: 28px; }
+.case-accordion__toggle { font-size: 22px; color: var(--amber-text); flex-shrink: 0; margin-left: auto; line-height: 1; }
+.case-accordion__body-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.case-accordion.is-open .case-accordion__body-wrap { grid-template-rows: 1fr; }
+.case-accordion__body { overflow: hidden; border-top: 1px solid var(--border); }
+.case-accordion.is-open .case-accordion__body { padding: 28px; }
 @media (max-width: 640px) {
   .case-accordion__badges { order: -1; width: 100%; }
   .case-accordion__toggle { margin-left: 0; }
@@ -487,8 +489,8 @@ p { margin: 0 0 1em; color: var(--text-muted); }
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: "+"; font-size: 20px; color: var(--amber-text); flex-shrink: 0; transition: transform .2s ease; }
-.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary::after { content: "+"; font-size: 20px; color: var(--amber-text); flex-shrink: 0; }
+.faq-item[open] summary::after { content: "−"; }
 .faq-item p { margin: 14px 0 0; }
 .faq-item p em { color: var(--text-muted); }
 
