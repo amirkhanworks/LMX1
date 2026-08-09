@@ -179,6 +179,7 @@ p { margin: 0 0 1em; color: var(--text-muted); }
   border-radius: 999px; text-transform: uppercase; letter-spacing: .04em;
 }
 .badge--delivered { background: #1E6B3E; color: #fff; }
+.badge--progress { background: var(--amber); color: var(--navy); }
 .badge--tag { background: var(--navy-soft); color: #fff; }
 .case-study__eyebrow { color: var(--amber); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
 .case-study__block { margin-bottom: 22px; }
