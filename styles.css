@@ -65,6 +65,9 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 }
 .section__subtitle { font-size: 16px; margin: 0; color: var(--text-muted); }
 .hero__title { border-left: 5px solid var(--amber); padding-left: 24px; font-size: clamp(32px, 5vw, 50px); }
+.hero__brand-line { display: inline-flex; align-items: center; gap: 0.18em; }
+.hero__brand-logo { height: 0.8em; width: auto; display: inline-block; }
+.hero--center .hero__brand-line { justify-content: center; }
 
 /* ===== Buttons ===== */
 .btn {
