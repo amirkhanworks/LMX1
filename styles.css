@@ -511,3 +511,105 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 
 /* ===== Photo consistency filter ===== */
 .avatar img { filter: saturate(.92) contrast(1.03); }
+
+/* ===== About Team — editorial leadership layout ===== */
+.team-section { background: var(--bg); }
+.team-section__header { margin-bottom: 0; }
+.team-section__title {
+  color: var(--navy);
+  font-size: clamp(30px, 3.2vw, 36px);
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.team-editorial {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 56px;
+}
+.team-editorial__person {
+  min-width: 0;
+  padding: 0 44px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-editorial__person + .team-editorial__person {
+  border-left: 1px solid var(--border);
+}
+.team-editorial__avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 auto;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+}
+.team-editorial__avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(.92) contrast(1.03);
+}
+.team-editorial__designation {
+  margin-top: 20px;
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.team-editorial__name {
+  margin: 7px 0 0;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.team-editorial__linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 17px;
+  color: var(--blue);
+  border-radius: 3px;
+  transition: color .15s ease, background-color .15s ease;
+}
+.team-editorial__linkedin svg { width: 18px; height: 18px; }
+.team-editorial__linkedin:hover {
+  color: var(--amber);
+  background: transparent;
+}
+.team-editorial__linkedin:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+@media (max-width: 960px) {
+  .team-editorial__person { padding: 0 28px; }
+}
+@media (max-width: 700px) {
+  .team-editorial {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+  .team-editorial__person { padding: 0 0 30px; }
+  .team-editorial__person + .team-editorial__person {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 30px;
+  }
+  .team-editorial__avatar {
+    width: 80px;
+    height: 80px;
+  }
+  .team-editorial__designation { margin-top: 18px; }
+  .team-editorial__name { font-size: 21px; }
+  .team-editorial__linkedin { margin-top: 14px; }
+}
