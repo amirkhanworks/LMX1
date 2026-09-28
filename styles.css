@@ -357,6 +357,18 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 .footer__icon-link:hover { background: rgba(255,255,255,.18); color: #fff; }
 .footer__icon-link svg { width: 16px; height: 16px; }
 
+.footer__cta { display: flex; flex-direction: column; gap: 10px; }
+.footer__cta-copy {
+  font-family: var(--font-display); font-size: 16px; line-height: 1.35; font-weight: 500;
+  color: #fff; margin: 0;
+}
+.footer__cta-link,
+.footer__cta-link:hover {
+  display: inline-flex; align-items: center; gap: 6px; width: fit-content;
+  font-size: 14px !important; color: #E8A33D !important;
+  transition: color .15s ease;
+}
+
 /* ===== Team card LinkedIn link ===== */
 .team-card__linkedin {
   display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
@@ -366,15 +378,15 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 .team-card__linkedin svg { width: 16px; height: 16px; }
 
 /* Footer */
-.site-footer { background: var(--navy); color: rgba(255,255,255,.7); padding: 64px 0 32px; }
-.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.site-footer { background: var(--navy); color: rgba(255,255,255,.7); padding: 52px 0 26px; }
+.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
 .footer__col h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.5); margin-bottom: 16px; font-family: var(--font-mono); font-weight: 500; }
 .footer__col ul { display: flex; flex-direction: column; gap: 10px; }
 .footer__col a, .footer__col p { font-size: 14px; color: rgba(255,255,255,.7); margin: 0; }
 .footer__col a:hover { color: #fff; }
 .footer__brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 17px; margin-bottom: 12px; color: #fff; }
 .footer__brand img { height: 24px; }
-.footer__bottom { border-top: 1px solid rgba(255,255,255,.15); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+.footer__bottom { border-top: 1px solid rgba(255,255,255,.15); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; }
 @media (max-width: 780px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer__grid { grid-template-columns: 1fr; } }
 
