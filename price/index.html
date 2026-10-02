@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0D1D35">
+<meta name="description" content="See your Luminox smart home price in seconds. ₹40,000 per room, installation and GST included. Mumbai and surrounding areas.">
+<meta property="og:title" content="Smart Home Price Calculator | Luminox Automation">
+<meta property="og:description" content="See your Luminox smart home price in seconds. ₹40,000 per room, installation and GST included. Mumbai and surrounding areas.">
+<meta property="og:url" content="https://www.luminoxautomation.com/price/">
+<title>Smart Home Price Calculator | Luminox Automation</title>
+<link rel="icon" type="image/svg+xml" href="../assets/Luminox_Icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D1D35;--amber:#E8B84B;--blue:#1A5CB8;--bg:#F7F7F5;--card:#FFF;--muted:#5B6575;--line:#E3E5E8;--max:480px;--radius:16px}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--navy);font-family:"IBM Plex Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,a{font:inherit;-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.page{min-height:100vh;padding:0 16px 40px;display:flex;justify-content:center}
+.app{width:100%;max-width:var(--max);min-height:100vh;background:var(--card);box-shadow:0 18px 50px rgba(13,29,53,.08)}
+header{height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#fff}
+.brand{height:32px;display:inline-flex;align-items:center}.brand img{height:28px;width:auto;display:block}
+.fallback{font:700 20px/1 "Space Grotesk",system-ui,sans-serif;letter-spacing:-.03em;color:var(--navy)}
+.pill{min-height:32px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-size:13px;font-weight:500}
+main{padding:24px 20px 32px}.screen{display:none}.screen.active{display:block;animation:in 150ms ease both}
+@keyframes in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.top{min-height:32px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between}
+.back{width:48px;height:48px;margin-left:-8px;border:0;border-radius:12px;background:transparent;color:var(--navy);display:inline-flex;align-items:center;justify-content:center}
+.back:hover{background:var(--bg)}.back svg{width:22px;height:22px}.progress{margin-left:auto;color:var(--muted);font-size:12px;letter-spacing:.04em}
+.eyebrow{display:inline-block;margin-bottom:10px;color:var(--blue);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+h1,h2{margin:0;color:var(--navy);font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;letter-spacing:-.03em}
+h1{font-size:clamp(30px,7.5vw,38px);line-height:1.08}h2{font-size:18px;line-height:1.2}
+.lede{margin:12px 0 24px;color:var(--muted);font-size:16px}
+.presets{display:grid;gap:12px}
+.preset{width:100%;min-height:92px;padding:18px;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:center;border:1px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--navy);transition:border-color 150ms,transform 150ms,box-shadow 150ms}
+.preset:hover{border:2px solid var(--amber);padding:17px;transform:translateY(-1px);box-shadow:0 10px 24px rgba(13,29,53,.07)}
+.preset-label{display:block;margin-bottom:3px;font:700 18px/1.2 "Space Grotesk",system-ui,sans-serif}
+.preset-sub{display:block;color:var(--muted);font-size:13px;line-height:1.35}
+.preset-price{font:700 17px/1.2 "Space Grotesk",system-ui,sans-serif;white-space:nowrap}.custom-price{color:var(--blue);font:600 14px/1.2 "IBM Plex Sans",system-ui,sans-serif}
+.steppers{display:grid;gap:14px;margin-top:24px}.stepper{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius)}
+.stepper-title{font:700 18px/1.2 "Space Grotesk",system-ui,sans-serif}.stepper-hint{margin-top:2px;color:var(--muted);font-size:12px}
+.controls{display:grid;grid-template-columns:48px 48px 48px;align-items:center;gap:4px}.stepper-btn{width:48px;height:48px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--navy);font-size:26px;line-height:1;padding:0}
+.stepper-btn:hover:not(:disabled){border-color:var(--amber)}.stepper-btn:disabled{opacity:.38;background:var(--bg)}.count{min-width:48px;text-align:center;font:700 20px/1 "Space Grotesk",system-ui,sans-serif}
+.preview{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}.preview-label{color:var(--muted);font-size:13px}
+.preview-value{display:block;min-height:44px;font:700 32px/1.1 "Space Grotesk",system-ui,sans-serif;font-variant-numeric:tabular-nums}.helper{margin:12px 0 0;color:var(--muted);font-size:12px}
+.button{min-height:52px;border-radius:12px;padding:13px 18px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;transition:background 150ms,border-color 150ms,transform 150ms}
+.primary{width:100%;border:1px solid var(--navy);background:var(--navy);color:#fff}.primary:hover{background:#172B4B;transform:translateY(-1px)}
+.secondary{border:1px solid var(--line);background:#fff;color:var(--navy)}.secondary:hover{border-color:var(--blue)}.custom-submit{width:100%;margin-top:22px}
+.price-block{padding:4px 0 22px}.price{display:block;min-width:10ch;min-height:66px;font:700 clamp(52px,15vw,68px)/1 "Space Grotesk",system-ui,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.price-note{margin:10px 0 0;color:var(--muted);font-size:14px}.breakdown{margin:18px 0 28px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
+.included{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:10px}.included li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;font-size:14px}.check{width:18px;height:18px;margin-top:1px;color:var(--blue)}
+.coming-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 24px}.chip{min-height:32px;padding:6px 9px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--muted);font-size:12px}
+.tag{padding:2px 6px;border-radius:5px;background:var(--amber);color:var(--navy);font-size:10px;font-weight:600;white-space:nowrap}
+.fine{margin:0 0 20px;color:var(--muted);font-size:12px;line-height:1.6}.actions{display:grid;gap:10px}.subactions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.change{min-height:44px;border:0;background:transparent;color:var(--blue);text-decoration:underline;text-underline-offset:3px;font-size:13px;font-weight:600}
+@media(min-width:700px){.page{padding:28px 20px 48px}.app{min-height:calc(100vh - 76px);border-radius:20px;overflow:clip}header{padding:0 24px}main{padding:32px 32px 40px}}
+@media(max-width:699px){[data-screen="3"] .actions{position:sticky;bottom:0;margin-left:-20px;margin-right:-20px;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);z-index:5}}
+@media(max-width:360px){header{padding:0 16px}main{padding-left:16px;padding-right:16px}.preset{padding-left:15px;padding-right:15px}.stepper{padding-left:14px;padding-right:14px}.controls{grid-template-columns:44px 44px 44px}.stepper-btn{width:44px}.count{min-width:44px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page"><div class="app">
+<header>
+<a class="brand" href="./" aria-label="Luminox Automation price calculator">
+<img src="../assets/Luminox_Logo.svg" alt="Luminox Automation"><span class="fallback" hidden aria-hidden="true">LUMINOX</span>
+</a>
+<span class="pill" data-copy="mumbai"></span>
+</header>
+<main>
+<section class="screen active" data-screen="1" aria-labelledby="choose-heading">
+<div class="top"><span class="progress" data-copy="progressChoose"></span></div>
+<span class="eyebrow" data-copy="chooseEyebrow"></span>
+<h1 id="choose-heading" tabindex="-1" data-copy="chooseTitle"></h1>
+<p class="lede" data-copy="chooseSub"></p>
+<div class="presets" data-presets></div>
+</section>
+
+<section class="screen" data-screen="2" aria-labelledby="custom-heading" aria-hidden="true">
+<div class="top"><button class="back" type="button" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button><span class="progress" data-copy="progressCustom"></span></div>
+<span class="eyebrow" data-copy="customEyebrow"></span>
+<h1 id="custom-heading" tabindex="-1" data-copy="customTitle"></h1>
+<div class="steppers">
+<div class="stepper"><div><div class="stepper-title" data-copy="hallsLabel"></div><div class="stepper-hint" data-copy="hallsHint"></div></div><div class="controls">
+<button class="stepper-btn" type="button" data-minus="halls"></button><span class="count" data-count="halls" aria-live="polite">1</span><button class="stepper-btn" type="button" data-plus="halls"></button>
+</div></div>
+<div class="stepper"><div><div class="stepper-title" data-copy="bedroomsLabel"></div><div class="stepper-hint" data-copy="bedroomsHint"></div></div><div class="controls">
+<button class="stepper-btn" type="button" data-minus="bedrooms"></button><span class="count" data-count="bedrooms" aria-live="polite">1</span><button class="stepper-btn" type="button" data-plus="bedrooms"></button>
+</div></div>
+</div>
+<div class="preview" aria-live="polite"><div class="preview-label" data-copy="customPriceLabel"></div><span class="preview-value" data-custom-price>₹80,000</span></div>
+<p class="helper" data-copy="customHelper"></p>
+<button class="button primary custom-submit" type="button" data-see-price data-copy="seePrice"></button>
+</section>
+
+<section class="screen" data-screen="3" aria-labelledby="price-heading" aria-hidden="true">
+<div class="top"><button class="back" type="button" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6 6"></path></svg></button><span class="progress" data-copy="progressPrice"></span></div>
+<div class="price-block"><span class="eyebrow" data-copy="priceEyebrow"></span><h1 id="price-heading" tabindex="-1"><span class="price" data-final-price>₹80,000</span></h1><p class="price-note" data-copy="includes"></p></div>
+<div class="breakdown" data-breakdown></div>
+<section aria-labelledby="included-heading"><h2 id="included-heading" data-copy="includedHeading"></h2><ul class="included" data-included></ul></section>
+<section aria-labelledby="coming-heading"><h2 id="coming-heading" data-copy="comingHeading"></h2><div class="coming-row" data-coming></div></section>
+<p class="fine" data-copy="finePrint"></p>
+<div class="actions">
+<a class="button primary" data-whatsapp target="_blank" rel="noopener" data-copy="whatsappButton"></a>
+<div class="subactions"><a class="button secondary" data-call data-copy="callButton"></a><button class="change" type="button" data-change data-copy="changeSelection"></button></div>
+</div>
+</section>
+</main>
+</div></div>
+
+<script>
+(() => {
+'use strict';
+const CONFIG={pricePerRoom:40000,currency:"₹",whatsappNumber:"919619310901",phone:"+919619310901",maxHalls:3,maxBedrooms:6,presets:[
+{id:"one",label:"Start with one room",sub:"A hall or a bedroom",rooms:1},
+{id:"1bhk",label:"1 BHK",sub:"1 hall + 1 bedroom",rooms:2},
+{id:"2bhk",label:"2 BHK",sub:"1 hall + 2 bedrooms",rooms:3},
+{id:"3bhk",label:"3 BHK",sub:"1 hall + 3 bedrooms",rooms:4},
+{id:"4bhk",label:"4 BHK",sub:"1 hall + 4 bedrooms",rooms:5},
+{id:"custom",label:"Build your own",sub:"Choose halls and bedrooms",rooms:null}],comingSoon:["Curtains","AC control","Smart socket","Keychain Remote","Climate sensor"]};
+const COPY={mumbai:"Mumbai",chooseEyebrow:"Luminox Automation",chooseTitle:"How much of your home do you want to make smart?",chooseSub:"Pick one. No forms, no phone number.",customEyebrow:"Luminox Automation",customTitle:"Build your own",hallsLabel:"Halls",hallsHint:"Up to 3",bedroomsLabel:"Bedrooms",bedroomsHint:"Up to 6",customPriceLabel:"Live price",customPrice:"Price after selection",customHelper:"Kitchen, bathrooms and balcony are not counted.",seePrice:"See my price",priceEyebrow:"Your Luminox price",includes:"Includes installation and GST",includedHeading:"What's included",included:["Smart control of lights, fans and LEDs in every selected room","Control by app and voice","Installed in one visit, no rewiring","Installation and GST included","2-year warranty","Add more rooms any time at ₹40,000 per room"],comingHeading:"Coming soon",comingSoonTag:"Coming soon",finePrint:"One Luminox module per room, fitted to the room's master switchboard. Kitchen, bathrooms and balcony are not included. Available in Mumbai and surrounding areas.",whatsappButton:"Chat on WhatsApp",callButton:"Call us",changeSelection:"Change my selection",progressChoose:"Step 1 of 2",progressCustom:"Step 2 of 2",progressPrice:"Your price",backLabel:"Go back",addHall:"Add a hall",removeHall:"Remove a hall",addBedroom:"Add a bedroom",removeBedroom:"Remove a bedroom",hallSingular:"hall",hallPlural:"halls",bedroomSingular:"bedroom",bedroomPlural:"bedrooms",roomSingular:"room",roomPlural:"rooms",customSelection:"Build your own",roomsSelection:"rooms",whatsappStart:"Hi Luminox, I used your price calculator. I'm interested in ",whatsappMiddle:" (",whatsappRooms:" rooms), priced at ",whatsappEnd:". Please help me book an installation."};
+const state={screen:1,presetId:null,halls:1,bedrooms:1};
+const screens=[...document.querySelectorAll(".screen")],headings={1:document.getElementById("choose-heading"),2:document.getElementById("custom-heading"),3:document.getElementById("price-heading")},presetsEl=document.querySelector("[data-presets]"),customPriceEl=document.querySelector("[data-custom-price]"),finalPriceEl=document.querySelector("[data-final-price]"),breakdownEl=document.querySelector("[data-breakdown]"),comingEl=document.querySelector("[data-coming]"),includedEl=document.querySelector("[data-included]"),whatsappEl=document.querySelector("[data-whatsapp]"),callEl=document.querySelector("[data-call]");
+function formatINR(n){return CONFIG.currency+Number(n).toLocaleString("en-IN")}
+function priceFor(rooms){return CONFIG.pricePerRoom*rooms}
+function roomsFor(current){if(current.presetId==="custom"||current.presetId==="rooms")return current.halls+current.bedrooms;const preset=CONFIG.presets.find(item=>item.id===current.presetId);return preset?preset.rooms:0}
+function plural(n,one,many){return n===1?one:many}
+function countsForPreset(id){if(id==="one")return{halls:1,bedrooms:0};if(id==="1bhk")return{halls:1,bedrooms:1};if(id==="2bhk")return{halls:1,bedrooms:2};if(id==="3bhk")return{halls:1,bedrooms:3};if(id==="4bhk")return{halls:1,bedrooms:4};return{halls:1,bedrooms:1}}
+function selectionLabel(current){if(current.presetId==="rooms")return roomsFor(current)+" "+COPY.roomsSelection;if(current.presetId==="custom")return COPY.customSelection;const preset=CONFIG.presets.find(item=>item.id===current.presetId);return preset?preset.label:COPY.customSelection}
+function breakdownText(current){const rooms=roomsFor(current);if(current.presetId==="one"||current.presetId==="rooms")return rooms+" "+plural(rooms,COPY.roomSingular,COPY.roomPlural)+" × "+formatINR(CONFIG.pricePerRoom);const halls=current.halls,bedrooms=current.bedrooms;if(!halls)return bedrooms+" "+plural(bedrooms,COPY.bedroomSingular,COPY.bedroomPlural)+" = "+rooms+" "+plural(rooms,COPY.roomSingular,COPY.roomPlural)+" × "+formatINR(CONFIG.pricePerRoom);if(!bedrooms)return halls+" "+plural(halls,COPY.hallSingular,COPY.hallPlural)+" = "+rooms+" "+plural(rooms,COPY.roomSingular,COPY.roomPlural)+" × "+formatINR(CONFIG.pricePerRoom);return halls+" "+plural(halls,COPY.hallSingular,COPY.hallPlural)+" + "+bedrooms+" "+plural(bedrooms,COPY.bedroomSingular,COPY.bedroomPlural)+" = "+rooms+" "+plural(rooms,COPY.roomSingular,COPY.roomPlural)+" × "+formatINR(CONFIG.pricePerRoom)}
+function buildWhatsAppUrl(current){const rooms=roomsFor(current),message=COPY.whatsappStart+selectionLabel(current)+COPY.whatsappMiddle+rooms+COPY.whatsappRooms+formatINR(priceFor(rooms))+COPY.whatsappEnd;return"https://wa.me/"+CONFIG.whatsappNumber+"?text="+encodeURIComponent(message)}
+function applyCopy(){document.querySelectorAll("[data-copy]").forEach(el=>{const value=COPY[el.dataset.copy];if(typeof value==="string")el.textContent=value});document.querySelector('[data-minus="halls"]').setAttribute("aria-label",COPY.removeHall);document.querySelector('[data-plus="halls"]').setAttribute("aria-label",COPY.addHall);document.querySelector('[data-minus="bedrooms"]').setAttribute("aria-label",COPY.removeBedroom);document.querySelector('[data-plus="bedrooms"]').setAttribute("aria-label",COPY.addBedroom);document.querySelectorAll("[data-back]").forEach(el=>el.setAttribute("aria-label",COPY.backLabel))}
+function renderPresets(){presetsEl.innerHTML=CONFIG.presets.map(preset=>{const price=preset.rooms===null?'<span class="preset-price custom-price">'+COPY.customPrice+'</span>':'<span class="preset-price">'+formatINR(priceFor(preset.rooms))+'</span>';return'<button class="preset" type="button" data-preset="'+preset.id+'"><span><span class="preset-label">'+preset.label+'</span><span class="preset-sub">'+preset.sub+'</span></span>'+price+'</button>'}).join("")}
+function renderIncluded(){includedEl.innerHTML=COPY.included.map(item=>'<li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4 4L19 7"></path></svg><span>'+item+'</span></li>').join("")}
+function renderComingSoon(){comingEl.innerHTML=CONFIG.comingSoon.map(item=>'<span class="chip"><span>'+item+'</span><span class="tag">'+COPY.comingSoonTag+'</span></span>').join("")}
+function renderSteppers(){const rooms=state.halls+state.bedrooms;document.querySelector('[data-count="halls"]').textContent=state.halls;document.querySelector('[data-count="bedrooms"]').textContent=state.bedrooms;document.querySelector('[data-minus="halls"]').disabled=state.halls<=0||rooms<=1;document.querySelector('[data-minus="bedrooms"]').disabled=state.bedrooms<=0||rooms<=1;document.querySelector('[data-plus="halls"]').disabled=state.halls>=CONFIG.maxHalls;document.querySelector('[data-plus="bedrooms"]').disabled=state.bedrooms>=CONFIG.maxBedrooms;customPriceEl.textContent=formatINR(priceFor(rooms))}
+function renderPrice(){const rooms=roomsFor(state);finalPriceEl.textContent=formatINR(priceFor(rooms));breakdownEl.textContent=breakdownText(state);whatsappEl.href=buildWhatsAppUrl(state);callEl.href="tel:"+CONFIG.phone}
+function render(focus=true){renderSteppers();renderPrice();screens.forEach(screen=>{const active=Number(screen.dataset.screen)===state.screen;screen.classList.toggle("active",active);screen.setAttribute("aria-hidden",String(!active))});if(focus)requestAnimationFrame(()=>headings[state.screen].focus())}
+function snapshot(){return{screen:state.screen,presetId:state.presetId,halls:state.halls,bedrooms:state.bedrooms}}
+function writeHistory(mode){const data=snapshot();if(mode==="push")history.pushState(data,"",location.href);else history.replaceState(data,"",location.href.split("#")[0])}
+function showStart(){state.screen=1;state.presetId=null;state.halls=1;state.bedrooms=1;history.replaceState(snapshot(),"",location.pathname);render()}
+function backOne(){history.state&&history.state.screen?history.back():showStart()}
+function choosePreset(id){state.presetId=id;if(id==="custom"){state.screen=2;state.halls=1;state.bedrooms=1}else{const c=countsForPreset(id);state.screen=3;state.halls=c.halls;state.bedrooms=c.bedrooms}writeHistory("push");render()}
+function showCustomPrice(){if(state.halls+state.bedrooms<1)return;state.screen=3;state.presetId="custom";writeHistory("push");render()}
+function updateStepper(kind,delta){const max=kind==="halls"?CONFIG.maxHalls:CONFIG.maxBedrooms,next=state[kind]+delta;if(next<0||next>max)return;if(state.halls+state.bedrooms+delta<1)return;state[kind]=next;render(false)}
+function parseDeepLink(){const p=new URLSearchParams(location.search),bhk=Number(p.get("bhk"));if(Number.isInteger(bhk)&&bhk>=1&&bhk<=4){const id=bhk+"bhk",c=countsForPreset(id);return{screen:3,presetId:id,halls:c.halls,bedrooms:c.bedrooms}}const roomsParam=p.get("rooms");if(roomsParam!==null&&/^\d+$/.test(roomsParam)){const rooms=Number(roomsParam);if(Number.isInteger(rooms)&&rooms>=1&&rooms<=10)return{screen:3,presetId:"rooms",halls:0,bedrooms:rooms}}return null}
+document.addEventListener("click",event=>{const preset=event.target.closest("[data-preset]");if(preset)return choosePreset(preset.dataset.preset);const minus=event.target.closest("[data-minus]");if(minus)return updateStepper(minus.dataset.minus,-1);const plus=event.target.closest("[data-plus]");if(plus)return updateStepper(plus.dataset.plus,1);if(event.target.closest("[data-see-price]"))return showCustomPrice();if(event.target.closest("[data-back]"))return backOne();if(event.target.closest("[data-change]"))return showStart()});
+window.addEventListener("popstate",event=>{const next=event.state;if(!next||!next.screen)return showStart();Object.assign(state,{screen:next.screen,presetId:next.presetId||null,halls:Number.isFinite(next.halls)?next.halls:1,bedrooms:Number.isFinite(next.bedrooms)?next.bedrooms:1});render()});
+const logo=document.querySelector(".brand img"),fallback=document.querySelector(".fallback");logo.addEventListener("error",()=>{logo.hidden=true;fallback.hidden=false;fallback.setAttribute("aria-hidden","false")});
+applyCopy();renderPresets();renderIncluded();renderComingSoon();
+const deep=parseDeepLink();if(deep){history.replaceState({screen:1,presetId:null,halls:1,bedrooms:1},"",location.href);Object.assign(state,deep);history.pushState(snapshot(),"",location.href)}else history.replaceState(snapshot(),"",location.href.split("#")[0]);render();
+})();
+</script>
+</body>
+</html>
