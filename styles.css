@@ -405,7 +405,7 @@ p { margin: 0 0 1em; color: var(--text-muted); }
   overflow-wrap: anywhere;
 }
 .patent-highlight {
-  background: var(--surface-alt);
+  background: var(--surface);
 }
 .patent-highlight__grid {
   display: grid;
@@ -416,7 +416,7 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 .patent-highlight__eyebrow {
   display: inline-block;
   margin-bottom: 14px;
-  color: var(--amber-text);
+  color: var(--blue);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
