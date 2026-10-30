@@ -395,6 +395,12 @@ p { margin: 0 0 1em; color: var(--text-muted); }
 .trust-strip-v2__item { display: flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 600; color: var(--navy); }
 .trust-strip-v2__item svg { width: 18px; height: 18px; color: var(--amber-text); flex-shrink: 0; }
 .trust-strip-v2__item--placeholder { color: var(--text-muted); font-weight: 500; font-style: italic; }
+.patent-text--mobile { display: none; }
+
+@media (max-width: 768px) {
+  .patent-text--desktop { display: none; }
+  .patent-text--mobile { display: inline; }
+}
 
 /* ===== Room coverage tags ===== */
 .room-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 8px 0 0; }
