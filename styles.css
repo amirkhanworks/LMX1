@@ -879,3 +879,240 @@ p { margin: 0 0 1em; color: var(--text-muted); }
     margin-top: 5px;
   }
 }
+
+/* ===== Patented product innovation feature ===== */
+.patent-feature-section {
+  padding: 16px 0 32px;
+  background: var(--bg);
+}
+
+.patent-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(260px, 1fr);
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(184, 134, 42, .28);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgba(13, 29, 53, .045);
+}
+
+.patent-feature__content {
+  min-width: 0;
+  align-self: center;
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.patent-feature__intro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.patent-feature__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border: 1px solid rgba(184, 134, 42, .32);
+  border-radius: 10px;
+  background: rgba(232, 184, 75, .12);
+  color: var(--amber-text);
+}
+
+.patent-feature__icon svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+
+.patent-feature__eyebrow {
+  margin: 0;
+  color: var(--amber-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.patent-feature__title {
+  max-width: 700px;
+  margin: 0 0 16px;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: clamp(27px, 3.1vw, 40px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.025em;
+}
+
+.patent-feature__description {
+  max-width: 720px;
+  margin: 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+
+.patent-feature__visual {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 290px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(26, 92, 184, .32), transparent 46%),
+    linear-gradient(145deg, #16294A 0%, #0D1D35 72%);
+  color: var(--amber);
+}
+
+.patent-feature__visual-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(135deg, transparent 5%, #000 48%, transparent 96%);
+}
+
+.patent-feature__visual-orbit {
+  position: absolute;
+  width: 224px;
+  height: 224px;
+  border: 1px solid rgba(232, 184, 75, .22);
+  border-radius: 50%;
+}
+
+.patent-feature__visual-orbit--outer {
+  width: 272px;
+  height: 272px;
+  border-color: rgba(255,255,255,.12);
+}
+
+.patent-feature__visual-orbit--inner {
+  width: 190px;
+  height: 190px;
+  border-style: dashed;
+  border-color: rgba(232, 184, 75, .36);
+}
+
+.patent-feature__visual-mark {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 112px;
+  height: 112px;
+  place-items: center;
+  border: 1px solid rgba(232, 184, 75, .42);
+  border-radius: 28px;
+  background: rgba(13, 29, 53, .72);
+  box-shadow: 0 16px 44px rgba(0,0,0,.2), inset 0 0 24px rgba(232, 184, 75, .06);
+}
+
+.patent-feature__visual-mark svg {
+  display: block;
+  width: 82px;
+  height: 82px;
+}
+
+.patent-feature__visual-caption,
+.patent-feature__visual-code {
+  position: absolute;
+  z-index: 1;
+  color: rgba(255,255,255,.68);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+
+.patent-feature__visual-caption {
+  bottom: 25px;
+  left: 22px;
+}
+
+.patent-feature__visual-code {
+  top: 22px;
+  right: 22px;
+  color: rgba(232, 184, 75, .78);
+}
+
+@media (max-width: 960px) {
+  .patent-feature {
+    grid-template-columns: minmax(0, 1.6fr) minmax(220px, .9fr);
+  }
+
+  .patent-feature__content {
+    padding: 30px;
+  }
+
+  .patent-feature__title {
+    font-size: clamp(26px, 3.5vw, 34px);
+  }
+
+  .patent-feature__visual {
+    min-height: 270px;
+  }
+}
+
+@media (max-width: 780px) {
+  .patent-feature-section {
+    padding: 8px 0 28px;
+  }
+
+  .patent-feature {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .patent-feature__content {
+    padding: 28px;
+  }
+
+  .patent-feature__visual {
+    min-height: 230px;
+  }
+
+  .patent-feature__visual-orbit--outer {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 560px) {
+  .patent-feature-section {
+    padding: 4px 0 24px;
+  }
+
+  .patent-feature__content {
+    padding: 24px 22px 26px;
+  }
+
+  .patent-feature__intro {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .patent-feature__title {
+    margin-bottom: 13px;
+    font-size: clamp(25px, 7.2vw, 31px);
+    line-height: 1.16;
+  }
+
+  .patent-feature__description {
+    font-size: 14.5px;
+    line-height: 1.68;
+  }
+
+  .patent-feature__visual {
+    min-height: 210px;
+  }
+}
